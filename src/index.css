@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+ 
+  
+}
+
+ .App {
+    
+  background: url("images/bg-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  }
