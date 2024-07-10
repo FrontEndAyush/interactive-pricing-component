@@ -22,3 +22,23 @@ body {
   background-position: center;
   border-bottom-left-radius: 100px;
 }
+
+@layer components {
+  input[type="range"] {
+    
+    @apply rounded-lg ;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply w-6 h-6 rounded-full bg-[#7DE8E0] cursor-pointer ;
+    
+  }
+
+  .toggle-checkbox:checked {
+    @apply right-0 border-blue-800;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply bg-cyan-800;
+  }
+}
