@@ -18,7 +18,7 @@ const App = () => {
     <main>
       <div className="w-[100vw]  h-full"></div>
       <div className=" App">
-        <div className=" py-20  text-center">
+        <div className=" py-14 lg:py-20 text-center">
           <h1 className="text-center text-xl font-bold mb-3 ">
             Simple, price-based pricing
           </h1>
@@ -28,7 +28,7 @@ const App = () => {
         </div>
 
         <div className=" flex justify-center">
-          <div className="w-[500px] h-[500px] bg-white">
+          <div className="w-[500px] h-[500px] m-3 shadowbx bg-white">
             <div className="flex justify-between p-9">
               <p className="text-[#8E93A9] text-[15px] tracking-widest font-bold  mx-auto  lg:m-0">
                 100K PAGEVIEWS
@@ -48,28 +48,52 @@ const App = () => {
               />
             </div>
 
-            <div className="flex justify-center gap-2 py-12  ">
-              <div className="relative flex gap-2">
-                <h1 className="text-[#B6B9CA] text-[15px]">Monthly Billing</h1>
-                <div className="w-16 rounded-full hover:bg-[#7CE9DE] cursor-pointer duration-300 transition-all h-7 border bg-[#CFD8EE]"></div>
+            <div className="flex justify-center gap-2 py-14  ">
+              <div className="relative flex items-center gap-2">
+                <h1 className="text-[#8E93A9] lg:text-[15px] text-[12px]">Monthly Billing</h1>
+                <div
+                  onClick={() => setIsTrue((prevValue) => !prevValue)}
+                  className="w-12 rounded-full hover:bg-[#7CE9DE] cursor-pointer duration-300  lg:h-6 transition-all h-5 border bg-[#CFD8EE]"
+                ></div>
                 <p
                   onClick={() => setIsTrue(false)}
-                  className={`h-5 w-5 bg-white absolute top-1  left-[109px] rounded-full ${
+                  className={`h-4 w-4 bg-white absolute  top-2   lg:left-[110px] left-[114px] rounded-full ${
                     isTrue == true ? "block" : "hidden"
                   }`}
                 ></p>
                 <p
                   onClick={() => setIsTrue(true)}
-                  className={`h-5 w-5 bg-white absolute top-1 left-[144px] rounded-full ${
+                  className={`h-4 w-4  bg-white absolute top-2 lg:top-2 left-[89px] lg:left-[134px] rounded-full ${
                     isTrue === false ? "block" : "hidden"
                   } `}
                 ></p>
               </div>
-              <div className="flex gap-2">
-                <p className="text-[#B6B9CA] text-[15px]">Yearly Billing</p>
-                <p className="text-[11px]  bg-[#FFECE7] text-[#F3B29B] font-semibold rounded-full p-1 border ">
+              <div className="flex items-center gap-2">
+                <p className="text-[#8E93A9] lg:text-[15px] text-[12px]">Yearly Billing</p>
+                <p className="text-[11px] mt-1 bg-[#FFECE7] text-[#F3B29B] font-semibold rounded-full p-1 border ">
                   25% discount
                 </p>
+              </div>
+            </div>
+            <hr />
+
+            <div className="flex justify-around py-8 flex-wrap lg:flex-nowrap">
+              <div>
+                <h1 className="flex mb-2 text-[#8E93A9]  gap-3 text-[15px] items-center">
+                  <img src="/images/icon-check.svg" alt="" /> Unlimited website
+                </h1>
+                <h1 className="flex  mb-2 text-[#8E93A9]  gap-3 text-[15px] items-center">
+                  <img src="/images/icon-check.svg" alt="" /> 100% Data
+                  ownership website
+                </h1>
+                <h1 className="flex  text-[#8E93A9]  gap-3 text-[15px] items-center">
+                  <img src="/images/icon-check.svg" alt="" /> Email report
+                </h1>
+              </div>
+              <div className="mt-7 mr-6 lg:mr-0 lg:mt-0">
+                <button className="px-10 py-3 text-white rounded-full bg-[#293356]">
+                  Start my trial
+                </button>
               </div>
             </div>
           </div>
