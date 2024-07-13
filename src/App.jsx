@@ -2,17 +2,20 @@ import React from "react";
 import { useState, useEffect } from "react";
 const App = () => {
   const [pageviews, setPageviews] = useState(100);
+  const [sliderPosition, setSliderPosition] = useState(50);
   const [price, setPrice] = useState(16);
   const [isTrue, setIsTrue] = useState(true);
   const [isYearly, setIsYearly] = useState(false);
 
-  useEffect(() => {
-    const newPrice = pageviews / 6.25;
-    setPrice(isYearly ? newPrice * 0.75 : newPrice);
-  }, [pageviews, isYearly]);
+  // useEffect(() => {
+  //   const newPrice = pageviews / 6.25;
+  //   setPrice(isYearly ? newPrice * 0.75 : newPrice);
+  // }, [pageviews, isYearly]);
 
   const handleSliderChange = (e) => {
-    setPageviews(e.target.value * 2);
+    const value = parseInt(e.target.value);
+    setPageviews(value * 2);
+    setSliderPosition(value);
   };
   return (
     <main>
@@ -28,7 +31,7 @@ const App = () => {
         </div>
 
         <div className=" flex justify-center">
-          <div className="w-[500px] h-[500px] m-3 shadowbx bg-white">
+          <div className="w-[500px] h-[430px] m-3 shadowbx bg-white">
             <div className="flex justify-between p-9">
               <p className="text-[#8E93A9] text-[15px] tracking-widest font-bold  mx-auto  lg:m-0">
                 100K PAGEVIEWS
@@ -37,20 +40,31 @@ const App = () => {
                 $16.00 <span className="text-xl  font-light">/ month</span>
               </h1>
             </div>
-            <div className="flex mt-4 justify-center ">
+            <div className="flex mt-4 justify-center relative w-5/6 mx-auto">
               <input
+                style={{
+                  background: `linear-gradient(to right, #22d3ee 0%, #22d3ee ${sliderPosition}%, #e2e8f0 ${sliderPosition}%, #e2e8f0 100%)`,
+                }}
                 min={0}
+                value={sliderPosition}
+                onChange={handleSliderChange}
                 max={100}
                 type="range"
-                name=""
-                className=" w-5/6 h-2 bg-[#A1F2EA]    appearance-none cursor-pointer"
-                id=""
+                className="w-full h-2 bg-[#A1F2EA] appearance-none cursor-pointer"
+              />
+              <img
+                src="/images/icon-slider.svg"
+                className="absolute top-1/2 transform -translate-y-1/2"
+                style={{ left: `calc(${sliderPosition}% - 10px)` }}
+                alt="Slider"
               />
             </div>
 
             <div className="flex justify-center gap-2 py-14  ">
               <div className="relative flex items-center gap-2">
-                <h1 className="text-[#8E93A9] lg:text-[15px] text-[12px]">Monthly Billing</h1>
+                <h1 className="text-[#8E93A9] lg:text-[15px] text-[12px]">
+                  Monthly Billing
+                </h1>
                 <div
                   onClick={() => setIsTrue((prevValue) => !prevValue)}
                   className="w-12 rounded-full hover:bg-[#7CE9DE] cursor-pointer duration-300  lg:h-6 transition-all h-5 border bg-[#CFD8EE]"
@@ -69,7 +83,9 @@ const App = () => {
                 ></p>
               </div>
               <div className="flex items-center gap-2">
-                <p className="text-[#8E93A9] lg:text-[15px] text-[12px]">Yearly Billing</p>
+                <p className="text-[#8E93A9] lg:text-[15px] text-[12px]">
+                  Yearly Billing
+                </p>
                 <p className="text-[11px] mt-1 bg-[#FFECE7] text-[#F3B29B] font-semibold rounded-full p-1 border ">
                   25% discount
                 </p>

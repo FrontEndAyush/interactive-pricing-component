@@ -31,7 +31,7 @@ body {
 
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    @apply w-[35px] h-[35px] rounded-full bg-[#7DE8E0] cursor-pointer ;
+    @apply w-[35px] h-[35px] rounded-full bg-[#7DE8E0] hover:bg-[#24AEA1] duration-300 transition-all cursor-pointer ;
     
   }
 
@@ -44,5 +44,5 @@ body {
 }
 
 .shadowbx{
-  box-shadow: 0px 0px 40px  #8E93A9;
-}
+  box-shadow: 0px 0px 10px  #8E93A9;
+} 
