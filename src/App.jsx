@@ -3,14 +3,8 @@ import { useState, useEffect } from "react";
 const App = () => {
   const [pageviews, setPageviews] = useState(100);
   const [sliderPosition, setSliderPosition] = useState(50);
-  const [price, setPrice] = useState(16);
-  const [isTrue, setIsTrue] = useState(true);
-  const [isYearly, setIsYearly] = useState(false);
 
-  // useEffect(() => {
-  //   const newPrice = pageviews / 6.25;
-  //   setPrice(isYearly ? newPrice * 0.75 : newPrice);
-  // }, [pageviews, isYearly]);
+  const [isTrue, setIsTrue] = useState(true);
 
   const handleSliderChange = (e) => {
     const value = parseInt(e.target.value);
@@ -20,7 +14,7 @@ const App = () => {
   return (
     <main>
       <div className="w-[100vw]  h-full"></div>
-      <div className=" App">
+      <div className=" App ">
         <div className=" py-14 lg:py-20 text-center">
           <h1 className="text-center text-xl font-bold mb-3 ">
             Simple, price-based pricing
@@ -30,8 +24,8 @@ const App = () => {
           </p>
         </div>
 
-        <div className=" flex justify-center">
-          <div className="w-[500px] h-[430px] m-3 shadowbx bg-white">
+        <div className=" flex justify-center mx-4">
+          <div className="w-[500px] h-[470px]  shadowbx bg-white">
             <div className="flex justify-between p-9">
               <p className="text-[#8E93A9] text-[15px] tracking-widest font-bold  mx-auto  lg:m-0">
                 100K PAGEVIEWS
@@ -51,12 +45,6 @@ const App = () => {
                 max={100}
                 type="range"
                 className="w-full h-2 bg-[#A1F2EA] appearance-none cursor-pointer"
-              />
-              <img
-                src="/images/icon-slider.svg"
-                className="absolute top-1/2 transform -translate-y-1/2"
-                style={{ left: `calc(${sliderPosition}% - 10px)` }}
-                alt="Slider"
               />
             </div>
 
@@ -107,7 +95,7 @@ const App = () => {
                 </h1>
               </div>
               <div className="mt-7 mr-6 lg:mr-0 lg:mt-0">
-                <button className="px-10 py-3 text-white rounded-full bg-[#293356]">
+                <button className="px-10 py-3 text-[#C5D2FA] hover:text-white duration-300 transition-all rounded-full bg-[#293356]">
                   Start my trial
                 </button>
               </div>
